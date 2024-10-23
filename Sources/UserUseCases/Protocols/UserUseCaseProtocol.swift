@@ -8,9 +8,12 @@
 import Vapor
 import UserDTOs
 import AuthenticationDTOs
+import class UserModels.UserModel
 
 public protocol UserUseCaseProtocol: UseCaseProtocol {
     func createUser(_ req: Request, createUserRequest: UserDTO) async throws -> HTTPStatus
+	func getSingleDTO(from model: UserModel, localization: @escaping @Sendable (String) -> String) -> UserDTO
+	func getManyDTOs(from models: [UserModel], localization: @escaping @Sendable (String) -> String) -> UsersDTO
     func getUser(_ req: Request, getUserRequest: UUIDRequest) async throws -> UserDTO
     func getUsers(_ req: Request) async throws -> UsersDTO
     func updateUser(_ req: Request, payload: Payload) async throws -> HTTPStatus

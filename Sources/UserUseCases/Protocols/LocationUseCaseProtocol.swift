@@ -11,8 +11,8 @@ import class UserModels.LocationModel
 
 public protocol LocationUseCaseProtocol: UseCaseProtocol {
     func createLocation(_ req: Request, createLocationRequest: LocationDTO) async throws -> HTTPStatus
-    func getSingleDTO(from model: LocationModel, localization: @escaping @Sendable (String) -> String) async throws -> LocationDTO
-    func getManyDTOs(from models: [LocationModel], localization: @escaping @Sendable (String) -> String) async throws -> LocationsDTO
+    func getSingleDTO(from model: LocationModel, localization: @escaping @Sendable (String) -> String) -> LocationDTO
+    func getManyDTOs(from models: [LocationModel], localization: @escaping @Sendable (String) -> String) -> LocationsDTO
     func getLocation(_ req: Request, getLocationRequest: UUIDRequest) async throws -> LocationDTO
     func getLocations(_ req: Request) async throws -> LocationsDTO
     func updateLocation(_ req: Request, updateLocationRequest: LocationDTO) async throws -> HTTPStatus

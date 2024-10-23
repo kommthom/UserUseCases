@@ -11,8 +11,8 @@ import class UserModels.CountryModel
 
 public protocol CountryUseCaseProtocol: UseCaseProtocol {
     func createCountry(_ req: Request, createCountryRequest: CountryDTO) async throws -> HTTPStatus
-    func getSingleDTO(from model: CountryModel, localization: @escaping @Sendable (String) -> String) async throws -> CountryDTO
-    func getManyDTOs(from models: [CountryModel], localization: @escaping @Sendable (String) -> String) async throws -> CountriesDTO
+    func getSingleDTO(from model: CountryModel, localization: @escaping @Sendable (String) -> String) -> CountryDTO
+    func getManyDTOs(from models: [CountryModel], localization: @escaping @Sendable (String) -> String) -> CountriesDTO
     func getCountry(_ req: Request, getCountryRequest: UUIDRequest) async throws -> CountryDTO
     func getCountries(_ req: Request) async throws -> CountriesDTO
     func updateCountry(_ req: Request, updateCountryRequest: CountryDTO) async throws -> HTTPStatus
